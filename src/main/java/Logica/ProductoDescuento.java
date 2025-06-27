@@ -8,8 +8,8 @@ package Logica;
  *
  * @author daniel
  */
-public class ProductoDescuento extends ProductoBase {
-    private double porcentajeDescuento;
+public class ProductoDescuento extends Producto {
+    private final double porcentajeDescuento;
     
     public ProductoDescuento(String codigo, String nombre, int cantidad, double precio, double porcentajeDescuento ) {
         super(codigo, nombre, cantidad, precio);
