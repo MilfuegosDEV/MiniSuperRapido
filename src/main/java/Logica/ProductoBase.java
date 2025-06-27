@@ -8,25 +8,45 @@ package Logica;
  *
  * @author daniel
  */
-public class ProductoBase extends Producto {
-    public ProductoBase () {
+public abstract class ProductoBase {
+    private int cantidad;
+    private String nombre;
+    private String codigo;
+    private double precio;
+    
+    public ProductoBase() {
         
     }
-    public ProductoBase(String codigo, String nombre, int cantidad, double precio) {
-        super(codigo, nombre, cantidad, precio);
+    
+    public ProductoBase( String codigo, String nombre, int cantidad, double precio) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+    public String getNombre() {
+        return this.nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
-    @Override
-    public double calcularPrecio() {
-        return this.getPrecio() * this.getCantidad();
+    public String getCodigo ( ) {
+        return this.codigo;
     }
     
-    @Override
-    public void Mostrar() {
-        System.out.printf(
-            "Código: %s, Nombre: %s, Cantidad: %d, Precio unitario: %.2f, Subtotal: %.2f%n",
-            this.getCodigo(), this.getNombre(), this.getCantidad(), this.getPrecio(), this.calcularPrecio()
-        );
+    public int getCantidad () {
+        return this.cantidad;
     }
-
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    public double getPrecio() {
+        return this.precio;
+    }
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    public abstract void Mostrar();
+    public abstract double calcularPrecio();
 }
